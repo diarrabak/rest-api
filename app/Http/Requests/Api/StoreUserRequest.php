@@ -61,6 +61,7 @@ class StoreUserRequest extends FormRequest
             'academicgroup_id' => $this->academicgroupId,
             'research_gate' => $this->researchGate,
             'google_scholar' => $this->googleScholar,
+            'password'=>bcrypt($this->password),
         ]);
     }
 }

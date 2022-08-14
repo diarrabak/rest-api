@@ -31,7 +31,7 @@ class UpdateRoleRequest extends FormRequest
             ];
         } else {
             return [
-                'role' => ['sometimes', 'required', Rule::in(['Admin', 'Prof', 'Student', 'Other'])]
+                'role' => ['sometimes',  Rule::in(['Admin', 'Prof', 'Student', 'Other'])]
             ];
         }
     }

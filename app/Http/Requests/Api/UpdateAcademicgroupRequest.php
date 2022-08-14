@@ -33,9 +33,9 @@ class UpdateAcademicgroupRequest extends FormRequest
             ];
         } else {
             return [
-                'name' => ['sometimes', 'required', 'string'],
-                'description' => ['sometimes', 'required', 'string'],
-                'picture' => ['sometimes', 'required', 'image'],
+                'name' => ['sometimes', 'string'],
+                'description' => ['sometimes',  'string'],
+                'picture' => ['sometimes',  'image'],
                 'departmentId' => ['sometimes', 'required', 'integer'],
             ];
         }

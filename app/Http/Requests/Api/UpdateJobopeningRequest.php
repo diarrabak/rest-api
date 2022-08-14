@@ -32,8 +32,8 @@ class UpdateJobopeningRequest extends FormRequest
             ];
         } else {
             return [
-                'name' => ['sometimes', 'required', 'string'],
-                'description' => ['sometimes', 'required', 'string'],
+                'name' => ['sometimes',  'string'],
+                'description' => ['sometimes',  'string'],
                 'departmentId' => ['sometimes', 'required', 'integer'],
             ];
         }

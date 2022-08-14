@@ -40,13 +40,13 @@ class UpdateArticleRequest extends FormRequest
             ];
         } else { //This is the PATCH function
             return [
-                'title' => ['sometimes', 'required', 'string'],
-                'link' => ['sometimes', 'required', 'string'],
-                'authors' => ['sometimes', 'required', 'string'], //we can add min:3 or max:54
+                'title' => ['sometimes',  'string'],
+                'link' => ['sometimes',  'string'],
+                'authors' => ['sometimes',  'string'], //we can add min:3 or max:54
                 // 'authors.*' => ['sometimes', 'required', 'string'], //Individual element in the array, we can add distinct, min ....
-                'publication' => ['sometimes', 'required', 'string'],
-                'year' => ['sometimes', 'required', 'date'],
-                'userId' => ['sometimes', 'required', 'integer'], //use the camelCase as convention in Json
+                'publication' => ['sometimes',  'string'],
+                'year' => ['sometimes',  'date'],
+                'userId' => ['sometimes','required', 'integer'], //use the camelCase as convention in Json
             ];
         }
     }

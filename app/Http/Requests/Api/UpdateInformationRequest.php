@@ -34,10 +34,10 @@ class UpdateInformationRequest extends FormRequest
             ];
         } else {
             return [
-                'title' => ['sometimes', 'required', 'string'],
-                'description' => ['sometimes', 'required', 'string'],
-                'document' => ['sometimes', 'required', 'string'],
-                'semester' => ['sometimes', 'required', 'string'],
+                'title' => ['sometimes',  'string'],
+                'description' => ['sometimes',  'string'],
+                'document' => ['sometimes',  'string'],
+                'semester' => ['sometimes',  'string'],
                 'departmentId' => ['sometimes', 'required', 'integer'],
             ];
         }

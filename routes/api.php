@@ -15,6 +15,7 @@
 
 use App\Http\Controllers\Api\DepartmentController;
 use App\Http\Controllers\Api\SpecializationController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {  //Names
 
     Route::group(['middleware' => 'auth:sanctum'], function () {  //Protecting some routes
         Route::apiResource("articles", ArticleController::class);
+        Route::post('logout', [UserController::class, 'logout']);
     });
     Route::apiResource("departments", DepartmentController::class);
     Route::apiResource("academicgroups", AcademicgroupController::class);
@@ -58,4 +60,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {  //Names
     Route::apiResource("roles", RoleController::class);
     Route::apiResource("specializations", SpecializationController::class);
     Route::apiResource("users", UserController::class);
+
+ 
+
 });
+Route::post('login', [UserController::class, 'login']);
+

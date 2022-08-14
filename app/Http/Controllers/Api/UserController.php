@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\LoginRequest;
 use App\Http\Requests\Api\StoreUserRequest;
 use App\Http\Requests\Api\UpdateUserRequest;
 use App\Http\Resources\Api\UserCollection;
 use App\Http\Resources\Api\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -31,7 +33,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $user = User::create($request->all());
-        $token = $user->createToken("TestToken1")->plainTextToken;
+        $token = $user->createToken("TestToken")->plainTextToken;
         $userResponse = new UserResource($user);
         return [
             "user" => $userResponse,
@@ -73,7 +75,28 @@ class UserController extends Controller
     {
         $user->delete();
         return [
-            'message'=>'User '.$user->id.' successfully deleted.',
+            'message' => 'User ' . $user->id . ' successfully deleted.',
+        ];
+    }
+
+    public function login(LoginRequest $request)
+    {
+        if (!Auth::attempt($request->all())) {
+            return [
+                'message' => $request->all(),
+            ];
+        }
+        return [
+            'user' => new UserResource(Auth()->user()),
+            'token' => Auth()->user()->createToken('TestToken')->plainTextToken,
+        ];
+    }
+
+    public function logout()
+    {
+        Auth()->user()->tokens()->delete;
+        return [
+            'message' => 'logout successfully',
         ];
     }
 }

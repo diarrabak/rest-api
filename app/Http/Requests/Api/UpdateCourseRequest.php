@@ -36,10 +36,10 @@ class UpdateCourseRequest extends FormRequest
             ];
         } else {
             return [
-                'code' => ['sometimes', 'required', 'string'],
-                'title' => ['sometimes', 'required', 'string'],
-                'description' => ['sometimes', 'required', 'string'],
-                'semester' => ['sometimes', 'required', Rule::in(['S1', 'S2', 'S3', 'S4'])], // Semester can have only one of these 4 values
+                'code' => ['sometimes',  'string'],
+                'title' => ['sometimes',  'string'],
+                'description' => ['sometimes',  'string'],
+                'semester' => ['sometimes',  Rule::in(['S1', 'S2', 'S3', 'S4'])], // Semester can have only one of these 4 values
                 'specializationId' => ['sometimes', 'required', 'integer'],
                 'departmentId' => ['sometimes', 'required', 'integer'],
             ];

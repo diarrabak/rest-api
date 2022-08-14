@@ -33,9 +33,9 @@ class UpdateEquipmentRequest extends FormRequest
             ];
         } else {
             return [
-                'name' => ['sometimes', 'required', 'string'],
-                'description' => ['sometimes', 'required', 'string'],
-                'picture' => ['sometimes', 'required', 'string'],
+                'name' => ['sometimes',  'string'],
+                'description' => ['sometimes',  'string'],
+                'picture' => ['sometimes',  'string'],
                 'laboratoryId' => ['sometimes', 'required', 'integer'],
             ];
         }
